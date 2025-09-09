@@ -1,0 +1,325 @@
+/* =========================
+   RESET GENERAL
+   ========================= */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+  background-color: #f5f5f5;
+  color: #333;
+  line-height: 1.5;
+}
+
+/* =========================
+   HEADER y NAV
+   ========================= */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  background: #111;
+  color: white;
+}
+
+header .logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+nav.menu {
+  display: flex;
+  gap: 1rem;
+}
+
+nav.menu a {
+  color: white;
+  font-weight: bold;
+  transition: color 0.3s;
+}
+
+nav.menu a:hover,
+nav.menu a.active {
+  color: #ff9800;
+}
+
+.usuario, .carrito {
+  display: flex;
+  gap: 1rem;
+}
+
+/* =========================
+   HERO (Banner inicial)
+   ========================= */
+.hero {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 3rem 2rem;
+  background: linear-gradient(to right, #1a1a1a, #333);
+  color: white;
+}
+
+.hero h1 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+.hero button {
+  padding: 0.7rem 1.5rem;
+  border: none;
+  background: #ff9800;
+  color: white;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.hero button:hover {
+  background: #e68900;
+}
+
+.hero img {
+  max-width: 300px;
+  border-radius: 10px;
+}
+
+/* =========================
+   PRODUCTOS
+   ========================= */
+.productos {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.5rem;
+  padding: 2rem;
+}
+
+.producto {
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  padding: 1rem;
+  text-align: center;
+  transition: transform 0.2s;
+}
+
+.producto:hover {
+  transform: translateY(-5px);
+}
+
+.producto img {
+  width: 100%;
+  border-radius: 5px;
+  margin-bottom: 1rem;
+}
+
+.producto .titulo {
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+}
+
+.producto .precio {
+  color: #ff9800;
+  font-weight: bold;
+  font-size: 1.1rem;
+}
+
+.producto button {
+  margin-top: 0.5rem;
+  padding: 0.5rem 1rem;
+  border: none;
+  background: #ff9800;
+  color: white;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.producto button:hover {
+  background: #e68900;
+}
+
+/* =========================
+   CARRITO DE COMPRAS
+   ========================= */
+.carrito-lista {
+  width: 90%;
+  max-width: 800px;
+  margin: 2rem auto;
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  padding: 1.5rem;
+}
+
+.item-carrito {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr auto;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.8rem 0;
+  border-bottom: 1px solid #ddd;
+}
+
+.item-carrito:last-child {
+  border-bottom: none;
+}
+
+.item-carrito span {
+  font-size: 1rem;
+}
+
+.item-carrito button {
+  padding: 0.3rem 0.6rem;
+  margin: 0 0.2rem;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  background: #ff9800;
+  color: white;
+  font-weight: bold;
+  transition: background 0.2s;
+}
+
+.item-carrito button:hover {
+  background: #e68900;
+}
+
+.item-carrito button:last-child { /* Eliminar */
+  background: #d32f2f;
+}
+
+.item-carrito button:last-child:hover {
+  background: #b71c1c;
+}
+
+.carrito-lista hr {
+  margin: 1rem 0;
+}
+
+.carrito-lista p {
+  font-size: 1.2rem;
+  text-align: right;
+}
+
+.carrito-lista strong {
+  color: #ff9800;
+}
+
+/* =========================
+   FORMULARIOS (registro, login, contacto, admin)
+   ========================= */
+form {
+  max-width: 500px;
+  margin: 2rem auto;
+  background: white;
+  padding: 2rem;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+form label {
+  display: block;
+  margin-bottom: 1rem;
+  font-weight: bold;
+}
+
+form input, form select, form textarea {
+  width: 100%;
+  padding: 0.5rem;
+  margin-top: 0.3rem;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+form button {
+  display: inline-block;
+  margin-top: 1rem;
+  padding: 0.6rem 1.2rem;
+  border: none;
+  background: #ff9800;
+  color: white;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+form button:hover {
+  background: #e68900;
+}
+
+/* =========================
+   TABLAS (Admin)
+   ========================= */
+table {
+  width: 90%;
+  margin: 2rem auto;
+  border-collapse: collapse;
+  background: white;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+table thead {
+  background: #111;
+  color: white;
+}
+
+table th, table td {
+  padding: 0.8rem;
+  text-align: center;
+  border-bottom: 1px solid #ddd;
+}
+
+table tr:hover {
+  background: #f9f9f9;
+}
+
+table button {
+  padding: 0.3rem 0.6rem;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin: 0 0.2rem;
+}
+
+table button:first-child {
+  background: #1976d2;
+  color: white;
+}
+
+table button:first-child:hover {
+  background: #0d47a1;
+}
+
+table button:last-child {
+  background: #d32f2f;
+  color: white;
+}
+
+table button:last-child:hover {
+  background: #b71c1c;
+}
+
+/* =========================
+   FOOTER
+   ========================= */
+footer {
+  background: #111;
+  color: #bbb;
+  text-align: center;
+  padding: 1rem;
+  margin-top: 2rem;
+}
+
+footer a {
+  margin: 0 0.5rem;
+  color: #bbb;
+}
+
+footer a:hover {
+  color: #ff9800;
+}
