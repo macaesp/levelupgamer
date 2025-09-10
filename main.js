@@ -14,7 +14,7 @@ function mostrarProductos() {
     .map(
       (producto) => `
     <div class="producto">
-      <img src="${producto.imagen}" alt="${producto.nombre}">
+      <img src="${producto.imagen}" alt="${producto.nombre}" style="width: 150px; height: 150px; object-fit: cover; border-radius: 8px;">
       <h3>${producto.nombre}</h3>
       <p class="precio">$${producto.precio.toLocaleString()}</p>
     </div>
