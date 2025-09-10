@@ -1,26 +1,26 @@
 // Productos iniciales
 const productos = [
-  { id: 1, nombre: "Mouse Gamer RGB", precio: 19990, imagen: "img/mouse.jpg" },
-  { id: 2, nombre: "Teclado Mecánico", precio: 45990, imagen: "img/teclado.jpg" },
-  { id: 3, nombre: "Audífonos HyperX", precio: 35990, imagen: "img/audifonos.jpg" },
-  { id: 4, nombre: "Silla Gamer", precio: 99990, imagen: "img/silla.jpg" }
-];
+  {id: 1,nombre: "Mouse Gamer Logitech",precio: 14990,descripcion:"",imagen: "img/mousegamerlogi.png"},
+  {id: 2,nombre: "Teclado Mecánico",precio: 45990,descripcion:"",imagen: "img/tecladogamer1.jpg"},
+  {id: 3,nombre: "Audífonos HyperX",precio: 35990,descripcion:"",imagen: "img/audifonosgamer1.png"},
+  {id: 4,nombre: "Silla Gamer",precio: 99990,descripcion:"",imagen: "img/sillagamer.png"}
+]
 
 function mostrarProductos() {
-  const contenedor = document.querySelector("#lista-productos");
-  if (!contenedor) return;
+  const contenedor = document.querySelector("#lista-productos .productos-g")
+  if (!contenedor) return
 
-  contenedor.innerHTML = "";
-  productos.forEach(p => {
-    contenedor.innerHTML += `
-      <div class="producto">
-        <img src="${p.imagen}" alt="${p.nombre}">
-        <p class="titulo">${p.nombre}</p>
-        <p class="precio">$${p.precio}</p>
-        <button onclick="agregarAlCarrito(${p.id})">Añadir al carrito</button>
-      </div>
-    `;
-  });
+  contenedor.innerHTML = productos
+    .map(
+      (producto) => `
+    <div class="producto">
+      <img src="${producto.imagen}" alt="${producto.nombre}">
+      <h3>${producto.nombre}</h3>
+      <p class="precio">$${producto.precio.toLocaleString()}</p>
+    </div>
+  `,
+    )
+    .join("")
 }
 
-document.addEventListener("DOMContentLoaded", mostrarProductos);
+document.addEventListener("DOMContentLoaded", mostrarProductos)
