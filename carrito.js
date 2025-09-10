@@ -1,94 +1,110 @@
-// Carrito vacío al inicio
-let carrito = [];
 
-// Guardar en el navegador
-function guardarCarrito() {
+function leerCarrito() {
+  return JSON.parse(localStorage.getItem("carrito")) || [];
+}
+
+// guarda el carrito en localStorage
+function guardarCarrito(carrito) {
   localStorage.setItem("carrito", JSON.stringify(carrito));
 }
 
-// Cargar del navegador
-function cargarCarrito() {
-  const guardado = localStorage.getItem("carrito");
-  if (guardado) {
-    carrito = JSON.parse(guardado);
-  }
-}
-
-// Agregar producto al carrito
+// agrega un producto al carrito 
 function agregarAlCarrito(idProducto) {
-  const producto = productos.find(p => p.id === idProducto);
-  if (!producto) return;
 
-  const enCarrito = carrito.find(item => item.id === idProducto);
+  const producto = (typeof productos !== "undefined") ? productos.find(p => p.id === idProducto) : null;
 
-  if (enCarrito) {
-    enCarrito.cantidad++;
+  // obtener carrito actual
+  let carrito = leerCarrito();
+
+  if (producto) {
+    // si existe en carrito, aumentar cantidad; si no, agregar con cantidad 1
+    const existente = carrito.find(item => item.id === idProducto);
+    if (existente) {
+      existente.cantidad = (existente.cantidad || 1) + 1;
+    } else {
+      carrito.push({
+        id: producto.id,
+        nombre: producto.nombre,
+        precio: producto.precio,
+        imagen: producto.imagen || "",
+        cantidad: 1
+      });
+    }
   } else {
-    carrito.push({ ...producto, cantidad: 1 });
+
+    const existente = carrito.find(item => item.id === idProducto);
+    if (existente) {
+      existente.cantidad = (existente.cantidad || 1) + 1;
+    } else {
+      carrito.push({ id: idProducto, nombre: "Producto", precio: 0, cantidad: 1 });
+    }
   }
 
-  guardarCarrito();
+  guardarCarrito(carrito);
 
-  // Redirigir al carrito
+  // redirigir al carrito para confirmar compra 
   window.location.href = "carrito.html";
 }
 
-// Mostrar productos en el carrito
+// muestra el carrito en carrito.html
 function mostrarCarrito() {
-  const lista = document.querySelector("#carrito-lista");
-  if (!lista) return; // No estamos en carrito.html
+  const cont = document.querySelector("#carrito-lista");
+  if (!cont) return; // si no existe, salimos 
 
-  lista.innerHTML = "";
-
+  const carrito = leerCarrito();
   if (carrito.length === 0) {
-    lista.innerHTML = "<p>El carrito está vacío.</p>";
+    cont.innerHTML = "<p>El carrito está vacío.</p>";
     return;
   }
 
+  let total = 0;
+  let html = "";
+
   carrito.forEach(item => {
-    lista.innerHTML += `
-      <div>
-        <strong>${item.nombre}</strong> - $${item.precio.toLocaleString("es-CL")}
-        <br>Cantidad: 
-        <button onclick="cambiarCantidad(${item.id}, -1)">➖</button>
-        ${item.cantidad}
-        <button onclick="cambiarCantidad(${item.id}, 1)">➕</button>
-        <button onclick="eliminarDelCarrito(${item.id})">❌</button>
-        <br>Total: $${(item.precio * item.cantidad).toLocaleString("es-CL")}
-        <hr>
+    const subtotal = (item.precio || 0) * (item.cantidad || 1);
+    total += subtotal;
+
+    html += `
+      <div class="item-carrito">
+        <img src="${item.imagen || 'img/no-image.png'}" alt="${item.nombre}" style="width:80px;height:80px;object-fit:cover;border-radius:6px;margin-right:10px;">
+        <div style="flex:1;">
+          <strong>${item.nombre}</strong>
+          <div>$${(item.precio||0).toLocaleString('es-CL')} x ${item.cantidad} = $${subtotal.toLocaleString('es-CL')}</div>
+        </div>
+        <div>
+          <button onclick="cambiarCantidad(${item.id}, -1)">➖</button>
+          <button onclick="cambiarCantidad(${item.id}, 1)">➕</button>
+          <button onclick="eliminarDelCarrito(${item.id})">Eliminar</button>
+        </div>
       </div>
+      <hr>
     `;
   });
 
-  // Mostrar total general
-  const total = carrito.reduce((suma, item) => suma + (item.precio * item.cantidad), 0);
-  lista.innerHTML += `<p><strong>Total general:</strong> $${total.toLocaleString("es-CL")}</p>`;
+  html += `<p style="text-align:right;"><strong>Total: $${total.toLocaleString('es-CL')}</strong></p>`;
+
+  cont.innerHTML = html;
 }
 
-// Cambiar cantidad (sumar o restar)
-function cambiarCantidad(idProducto, cantidad) {
-  const item = carrito.find(p => p.id === idProducto);
+// cambiar cantidad 
+function cambiarCantidad(idProducto, delta) {
+  let carrito = leerCarrito();
+  const item = carrito.find(i => i.id === idProducto);
   if (!item) return;
-
-  item.cantidad += cantidad;
-
+  item.cantidad = (item.cantidad || 1) + delta;
   if (item.cantidad <= 0) {
-    eliminarDelCarrito(idProducto);
-  } else {
-    guardarCarrito();
-    mostrarCarrito();
+    carrito = carrito.filter(i => i.id !== idProducto);
   }
+  guardarCarrito(carrito);
+  mostrarCarrito();
 }
 
-// Eliminar producto
+// eliminar item
 function eliminarDelCarrito(idProducto) {
-  carrito = carrito.filter(p => p.id !== idProducto);
-  guardarCarrito();
+  let carrito = leerCarrito().filter(i => i.id !== idProducto);
+  guardarCarrito(carrito);
   mostrarCarrito();
 }
 
-// Cargar carrito al abrir la página
-document.addEventListener("DOMContentLoaded", () => {
-  cargarCarrito();
-  mostrarCarrito();
-});
+// al cargar la página, renderizamos si existe el contenedor
+document.addEventListener("DOMContentLoaded", mostrarCarrito);

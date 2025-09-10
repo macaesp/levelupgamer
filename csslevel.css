@@ -335,4 +335,30 @@
   footer a:hover {
     color: #ff9800;
   }
+  .btn-vermas {
+    margin-top: 0.5rem;
+    padding: 0.5rem 1rem;
+    border: none;
+    background: #444;
+    color: white;
+    cursor: pointer;
+    border-radius: 5px;
+  }
+  
+  .btn-vermas:hover {
+    background: #222;
+  }
+  
+  .producto-detalle {
+    display: flex;
+    gap: 2rem;
+    align-items: flex-start;
+    padding: 2rem;
+    max-width: 900px;
+    margin: 2rem auto;
+    background: white;
+    color: #333;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  }
   
