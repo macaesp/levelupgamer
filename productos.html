@@ -2,6 +2,7 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Productos - LevelUpGamer</title>
   <link rel="stylesheet" href="csslevel.css">
 </head>
@@ -22,11 +23,122 @@
 
   <main>
     <h1>Productos Disponibles</h1>
-    <section id="lista-productos" class="productos"></section>
-  </main>
-  
+    
+    <section class="categorias">
+      <button class="filtro-btn active" data-categoria="todos">Todos</button>
+      <button class="filtro-btn" data-categoria="juegos-mesa">Juegos de Mesa</button>
+      <button class="filtro-btn" data-categoria="consolas">Consolas</button>
+      <button class="filtro-btn" data-categoria="accesorios">Accesorios</button>
+      <button class="filtro-btn" data-categoria="pc-gaming">PC Gaming</button>
+      <button class="filtro-btn" data-categoria="ropa">Ropa</button>
+    </section>
 
-  <footer><p>© 2025 LevelUpGamer</p></footer>
+    <section id="lista-productos" class="productos">
+      <div class="producto-card" data-categoria="juegos-mesa">
+        <img src="img/catan.jpg" alt="Catan" width="250" height="260">
+        <div class="producto-info">
+          <h3>Catan</h3>
+          <p>Clásico juego de estrategia en donde los jugadores compiten por colonizar y expandirse en la isla de Catán. Ideal para 3-4 jugadores.</p>
+          <p class="precio">$29.990</p>
+          <button class="btn-carrito" onclick="agregarAlCarrito(1)">Añadir al carrito</button>
+        </div>
+      </div>
+
+      <div class="producto-card" data-categoria="juegos-mesa">
+        <img src="img/carcassonne.jpg" alt="Carcassonne" width="250" height="260">
+        <div class="producto-info">
+          <h3>Carcassonne</h3>
+          <p>Juego de colocación de fichas en donde los jugadores construyen el paisaje alrededor de una fortaleza medieval. Ideal para 2-5 jugadores.</p>
+          <p class="precio">$24.990</p>
+          <button class="btn-carrito" onclick="agregarAlCarrito(2)">Añadir al carrito</button>
+        </div>
+      </div>
+
+      <div class="producto-card" data-categoria="consolas">
+        <img src="img/D_Q_NP_883946-MLA79964406701_102024-O.png" alt="PlayStation 5" width="250" height="260">
+        <div class="producto-info">
+          <h3>PlayStation 5</h3>
+          <p>Consola de última generación de Sony, ofrece buenos gráficos y tiempos de carga ultrarrápidos para una mejor experiencia.</p>
+          <p class="precio">$549.990</p>
+          <button class="btn-carrito" onclick="agregarAlCarrito(5)">Añadir al carrito</button>
+        </div>
+      </div>
+
+      <div class="producto-card" data-categoria="accesorios">
+        <img src="img/purpleeee.png" alt="Control Xbox Series X" width="250" height="260">
+        <div class="producto-info">
+          <h3>Control Xbox Series X</h3>
+          <p>Ofrece una experiencia de juego cómoda con botones mapeables y una rápida respuesta táctil. Compatible con consolas Xbox y PC.</p>
+          <p class="precio">$59.990</p>
+          <button class="btn-carrito" onclick="agregarAlCarrito(3)">Añadir al carrito</button>
+        </div>
+      </div>
+
+      <div class="producto-card" data-categoria="accesorios">
+        <img src="img/hyperx_cloud_ii_red_1_main.png" alt="Audífonos Gamer HyperX Cloud II" width="250" height="260">
+        <div class="producto-info">
+          <h3>Audífonos Gamer HyperX Cloud II</h3>
+          <p>Proporcionan una calidad envolvente, con un micrófono desmontable y almohadillas de espuma viscoelástica para mayor comodidad.</p>
+          <p class="precio">$79.990</p>
+          <button class="btn-carrito" onclick="agregarAlCarrito(4)">Añadir al carrito</button>
+        </div>
+      </div>
+
+      <div class="producto-card" data-categoria="accesorios">
+        <img src="img/mouse.png" alt="Mouse Gamer RGB" width="250" height="260">
+        <div class="producto-info">
+          <h3>Mouse Gamer RGB</h3>
+          <p>Mouse de alto rendimiento con iluminación RGB y sensor de 16000 DPI.</p>
+          <p class="precio">$49.990</p>
+          <button class="btn-carrito" onclick="agregarAlCarrito(8)">Añadir al carrito</button>
+        </div>
+      </div>
+
+      <div class="producto-card" data-categoria="accesorios">
+        <img src="img/rv5qxhyd_523dddfd_thumbnail_512.jpg" alt="Mousepad Razer Goliathus Extended Chroma" width="250" height="260">
+        <div class="producto-info">
+          <h3>Mousepad Razer Goliathus Extended Chroma</h3>
+          <p>Ofrece una área amplia de juego con iluminación RGB personalizable.</p>
+          <p class="precio">$29.990</p>
+          <button class="btn-carrito" onclick="agregarAlCarrito(9)">Añadir al carrito</button>
+        </div>
+      </div>
+
+      <div class="producto-card" data-categoria="pc-gaming">
+        <img src="img/52.png" alt="PC Gamer ASUS ROG Strix" width="250" height="260">
+        <div class="producto-info">
+          <h3>PC Gamer ASUS ROG Strix</h3>
+          <p>Potente equipo que ha sido diseñado para los gamers más exigentes, está equipado con los últimos componentes de este año y ofrece un espectacular rendimiento.</p>
+          <p class="precio">$1.299.990</p>
+          <button class="btn-carrito" onclick="agregarAlCarrito(6)">Añadir al carrito</button>
+        </div>
+      </div>
+
+      <div class="producto-card" data-categoria="pc-gaming">
+        <img src="img/410uYasNqFL._AC_SL1000_.jpg" alt="Silla Gamer Secretlab Titan" width="250" height="260">
+        <div class="producto-info">
+          <h3>Silla Gamer Secretlab Titan</h3>
+          <p>Diseñada para ofrecer el máximo confort, es una silla ergonómica y tiene una personalización ajustable para sesiones de juegos prolongadas.</p>
+          <p class="precio">$349.990</p>
+          <button class="btn-carrito" onclick="agregarAlCarrito(7)">Añadir al carrito</button>
+        </div>
+      </div>
+
+      <div class="producto-card" data-categoria="ropa">
+        <img src="img/poleragamerlevelup.PNG" alt="Polera Gamer Personalizada Level-Up" width="250" height="260">
+        <div class="producto-info">
+          <h3>Polera Gamer Personalizada "Level-Up"</h3>
+          <p>Polera cómoda y con diseño exclusivo para gamers. Material de alta calidad y estampado duradero.</p>
+          <p class="precio">$14.990</p>
+          <button class="btn-carrito" onclick="agregarAlCarrito(10)">Añadir al carrito</button>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>© 2025 LevelUpGamer</p>
+  </footer>
 
   <script src="js/main.js"></script>
   <script src="js/carrito.js"></script>
