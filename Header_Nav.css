@@ -1,0 +1,38 @@
+/* =========================
+    HEADER y NAV
+   ========================= */
+   header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    background: #4b8610;
+    color: rgb(239, 235, 235);
+  }
+  
+  header .logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+  }
+  
+  nav.menu {
+    display: flex;
+    gap: 1rem;
+  }
+  
+  nav.menu a {
+    color: white;
+    font-weight: bold;
+    transition: color 0.3s;
+  }
+  
+  nav.menu a:hover,
+  nav.menu a.active {
+    color: #ff9800;
+  }
+  
+  .usuario, .carrito {
+    display: flex;
+    gap: 1rem;
+  }
+  

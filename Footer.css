@@ -1,0 +1,16 @@
+footer {
+    background: #111;
+    color: #bbb;
+    text-align: center;
+    padding: 1rem;
+    margin-top: 2rem;
+  }
+  
+  footer a {
+    margin: 0 0.5rem;
+    color: #bbb;
+  }
+  
+  footer a:hover {
+    color: #ff9800;
+  }
