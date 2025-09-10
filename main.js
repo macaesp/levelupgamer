@@ -1,27 +1,50 @@
-// Productos iniciales
+console.log(" main.js está conectado correctamente");
+
+
+// DATASET DE PRUEBA 
+
 const productos = [
-  {id: 1,nombre: "Mouse Gamer Logitech",precio: 14990,descripcion:"",imagen: "img/mousegamerlogi.png"},
-  {id: 2,nombre: "Teclado Mecánico",precio: 45990,descripcion:"",imagen: "img/tecladogamer1.jpg"},
-  {id: 3,nombre: "Audífonos HyperX",precio: 35990,descripcion:"",imagen: "img/audifonosgamer1.png"},
-  {id: 4,nombre: "Silla Gamer",precio: 99990,descripcion:"",imagen: "img/sillagamer.png"}
-]
+  { 
+    id: 1, 
+    nombre: "Mouse Gamer RGB", 
+    precio: 19990, 
+    imagen: "img/mouse.jpg",
+    descripcion: "Mouse gamer con sensor óptico 16000 DPI e iluminación RGB." 
+  },
+  { 
+    id: 2, 
+    nombre: "Teclado Mecánico Redragon", 
+    precio: 45990, 
+    imagen: "img/teclado.jpg",
+    descripcion: "Teclado mecánico retroiluminado con switches azules." 
+  }
+];
+
+
+// FUNCIÓN PARA MOSTRAR PRODUCTOS
 
 function mostrarProductos() {
-  const contenedor = document.querySelector("#lista-productos .productos-g")
-  if (!contenedor) return
+  const contenedor = document.querySelector("#lista-productos");
+  if (!contenedor) {
+    console.log("⚠️ No encontré el contenedor #lista-productos");
+    return;
+  }
 
-  contenedor.innerHTML = productos
-    .map(
-      (producto) => `
-    <div class="producto">
-      <img src="${producto.imagen}" alt="${producto.nombre}" style="width: 150px; height: 150px; object-fit: cover; border-radius: 8px;">
-      <h3>${producto.nombre}</h3>
-      <p class="precio">$${producto.precio.toLocaleString()}</p>
-    </div>
-  `,
-    )
-    .join("")
+  contenedor.innerHTML = "";
+  productos.forEach(p => {
+    contenedor.innerHTML += `
+      <div class="producto">
+        <img src="${p.imagen}" alt="${p.nombre}">
+        <p class="titulo">${p.nombre}</p>
+        <p class="precio">$${p.precio.toLocaleString("es-CL")}</p>
+        <p class="descripcion">${p.descripcion}</p>
+        <a href="detalle-producto.html?id=${p.id}">
+          <button>Ver Detalle</button>
+        </a>
+        <button onclick="agregarAlCarrito(${p.id})">Añadir al carrito</button>
+      </div>
+    `;
+  });
 }
 
-document.addEventListener("DOMContentLoaded", mostrarProductos)
-
+document.addEventListener("DOMContentLoaded", mostrarProductos);
