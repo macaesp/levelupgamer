@@ -1,21 +1,76 @@
-<!DOCTYPE html>
+<!-- admin.html -->
+<!doctype html>
 <html lang="es">
-<head>
-  <meta charset="UTF-8">
-  <title>Admin - Home</title>
-  <link rel="stylesheet" href="../cssLevel.css">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Level-Up Gamer - Admin</title>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
 </head>
-<body>
-  <aside>
-    <h2>Menú Admin</h2>
-    <nav>
-      <a href="index.html">Inicio</a>
-      <a href="productos.html">Productos</a>
-      <a href="usuarios.html">Usuarios</a>
-    </nav>
-  </aside>
-  <main>
-    <h1>Bienvenido Administrador </h1>
+<body onload="pageInit(); loadAdminProducts()">
+  <header class="site-header"><div class="container header-inner"><div class="brand"><div class="logo">L</div><h1>Admin</h1></div></div></header>
+
+  <main class="container">
+    <h2>Administrador — Productos</h2>
+    <div style="display:flex;gap:20px;flex-wrap:wrap">
+      <div style="flex:1;min-width:320px">
+        <h3>Agregar producto</h3>
+        <div class="form">
+          <div class="form-group"><label>Código</label><input id="admin-codigo" type="text"></div>
+          <div class="form-group"><label>Nombre</label><input id="admin-nombre" type="text"></div>
+          <div class="form-group"><label>Descripción</label><textarea id="admin-desc"></textarea></div>
+          <div class="form-group"><label>Precio</label><input id="admin-precio" type="number" min="0"></div>
+          <div class="form-group"><label>Stock</label><input id="admin-stock" type="number" min="0"></div>
+          <div class="form-group"><label>Categoría</label><input id="admin-cat" type="text"></div>
+          <div class="form-group"><label>URL imagen</label><input id="admin-img" type="text" placeholder="https://..."></div>
+          <div style="display:flex;gap:8px"><button class="btn" onclick="onAdminAdd()">Agregar</button></div>
+          <div id="admin-msg" style="margin-top:8px"></div>
+        </div>
+      </div>
+
+      <div style="flex:1.5;min-width:320px">
+        <h3>Lista de productos</h3>
+        <div id="admin-list" style="margin-top:8px"></div>
+      </div>
+    </div>
   </main>
+
+  <footer class="site-footer"><div class="container">© 2025 Level-Up Gamer</div></footer>
+  <script src="js/scripts.js"></script>
+  <script>
+    function loadAdminProducts(){
+      const list = document.getElementById('admin-list');
+      const products = getProducts();
+      list.innerHTML = '';
+      products.forEach(p=>{
+        const el = document.createElement('div');
+        el.className='card';
+        el.style.marginBottom='8px';
+        el.innerHTML = `<div style="display:flex;gap:12px;align-items:center">
+          <img src="${p.img}" style="width:80px;height:60px;object-fit:cover;border-radius:6px">
+          <div style="flex:1">
+            <strong>${p.nombre}</strong><div style="color:var(--text-secondary)">${p.categoria}</div>
+            <div style="margin-top:6px;color:var(--text-secondary)">Precio: $ ${p.precio.toLocaleString('es-CL')} | Stock: ${p.stock}</div>
+          </div>
+        </div>`;
+        list.appendChild(el);
+      });
+    }
+    function onAdminAdd(){
+      const codigo = document.getElementById('admin-codigo').value.trim();
+      const nombre = document.getElementById('admin-nombre').value.trim();
+      const descripcion = document.getElementById('admin-desc').value.trim();
+      const precio = document.getElementById('admin-precio').value;
+      const stock = document.getElementById('admin-stock').value;
+      const categoria = document.getElementById('admin-cat').value.trim();
+      const img = document.getElementById('admin-img').value.trim();
+      if(!codigo || !nombre || !precio || !stock || !categoria){
+        document.getElementById('admin-msg').innerHTML = '<div class="error">Complete los campos requeridos.</div>';
+        return;
+      }
+      adminAddProduct({codigo,nombre,descripcion,precio,stock,categoria,img});
+      document.getElementById('admin-msg').innerHTML = '<div class="success">Producto agregado.</div>';
+      setTimeout(()=>{ document.getElementById('admin-msg').textContent=''; loadAdminProducts(); },800);
+    }
+  </script>
 </body>
 </html>
