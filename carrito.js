@@ -1,67 +1,94 @@
-function obtenerCarrito() {
-  return JSON.parse(localStorage.getItem("carrito")) || [];
-}
+// Carrito vacío al inicio
+let carrito = [];
 
-function guardarCarrito(carrito) {
+// Guardar en el navegador
+function guardarCarrito() {
   localStorage.setItem("carrito", JSON.stringify(carrito));
 }
 
-function agregarAlCarrito(idProducto) {
-  let carrito = obtenerCarrito();
-  let producto = productos.find(p => p.id === idProducto);
+// Cargar del navegador
+function cargarCarrito() {
+  const guardado = localStorage.getItem("carrito");
+  if (guardado) {
+    carrito = JSON.parse(guardado);
+  }
+}
 
-  let item = carrito.find(p => p.id === idProducto);
-  if (item) {
-    item.cantidad++;
+// Agregar producto al carrito
+function agregarAlCarrito(idProducto) {
+  const producto = productos.find(p => p.id === idProducto);
+  if (!producto) return;
+
+  const enCarrito = carrito.find(item => item.id === idProducto);
+
+  if (enCarrito) {
+    enCarrito.cantidad++;
   } else {
     carrito.push({ ...producto, cantidad: 1 });
   }
 
-  guardarCarrito(carrito);
-  alert(`${producto.nombre} añadido al carrito`);
+  guardarCarrito();
+
+  // Redirigir al carrito
+  window.location.href = "carrito.html";
 }
 
+// Mostrar productos en el carrito
 function mostrarCarrito() {
-  const lista = document.querySelector("#carritoLista");
-  if (!lista) return;
-
-  let carrito = obtenerCarrito();
-  let total = 0;
+  const lista = document.querySelector("#carrito-lista");
+  if (!lista) return; // No estamos en carrito.html
 
   lista.innerHTML = "";
-  carrito.forEach(p => {
-    total += p.precio * p.cantidad;
+
+  if (carrito.length === 0) {
+    lista.innerHTML = "<p>El carrito está vacío.</p>";
+    return;
+  }
+
+  carrito.forEach(item => {
     lista.innerHTML += `
-      <div class="item-carrito">
-        <span>${p.nombre}</span>
-        <span>$${p.precio}</span>
-        <span>Cant: ${p.cantidad}</span>
-        <button onclick="cambiarCantidad(${p.id}, 1)">+</button>
-        <button onclick="cambiarCantidad(${p.id}, -1)">-</button>
-        <button onclick="eliminarDelCarrito(${p.id})">❌</button>
+      <div>
+        <strong>${item.nombre}</strong> - $${item.precio.toLocaleString("es-CL")}
+        <br>Cantidad: 
+        <button onclick="cambiarCantidad(${item.id}, -1)">➖</button>
+        ${item.cantidad}
+        <button onclick="cambiarCantidad(${item.id}, 1)">➕</button>
+        <button onclick="eliminarDelCarrito(${item.id})">❌</button>
+        <br>Total: $${(item.precio * item.cantidad).toLocaleString("es-CL")}
+        <hr>
       </div>
     `;
   });
 
-  lista.innerHTML += `<hr><p>Total: <strong>$${total}</strong></p>`;
+  // Mostrar total general
+  const total = carrito.reduce((suma, item) => suma + (item.precio * item.cantidad), 0);
+  lista.innerHTML += `<p><strong>Total general:</strong> $${total.toLocaleString("es-CL")}</p>`;
 }
 
-function cambiarCantidad(id, delta) {
-  let carrito = obtenerCarrito();
-  let item = carrito.find(p => p.id === id);
+// Cambiar cantidad (sumar o restar)
+function cambiarCantidad(idProducto, cantidad) {
+  const item = carrito.find(p => p.id === idProducto);
+  if (!item) return;
 
-  if (item) {
-    item.cantidad += delta;
-    if (item.cantidad <= 0) carrito = carrito.filter(p => p.id !== id);
-    guardarCarrito(carrito);
+  item.cantidad += cantidad;
+
+  if (item.cantidad <= 0) {
+    eliminarDelCarrito(idProducto);
+  } else {
+    guardarCarrito();
     mostrarCarrito();
   }
 }
 
-function eliminarDelCarrito(id) {
-  let carrito = obtenerCarrito().filter(p => p.id !== id);
-  guardarCarrito(carrito);
+// Eliminar producto
+function eliminarDelCarrito(idProducto) {
+  carrito = carrito.filter(p => p.id !== idProducto);
+  guardarCarrito();
   mostrarCarrito();
 }
 
-document.addEventListener("DOMContentLoaded", mostrarCarrito);
+// Cargar carrito al abrir la página
+document.addEventListener("DOMContentLoaded", () => {
+  cargarCarrito();
+  mostrarCarrito();
+});
