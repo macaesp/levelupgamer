@@ -2,18 +2,105 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <title>Iniciar Sesión</title>
-  <link rel="stylesheet" href="csslevel.css">
+  <title>Iniciar Sesión | LevelUpGamer</title>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap" rel="stylesheet">
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Orbitron', sans-serif;
+      background-color: #0a0a0a;
+      color: #00ff66;
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .login-container {
+      text-align: center;
+      background-color: #111;
+      padding: 40px;
+      border-radius: 15px;
+      box-shadow: 0 0 20px #00ff66;
+      width: 100%;
+      max-width: 400px;
+    }
+
+    .login-container img {
+      width: 140px;
+      height: 100px;
+      margin-bottom: 10px;
+    }
+
+    .login-container h1 {
+      font-size: 2.2em;
+      color: #00ff66;
+      margin-bottom: 30px;
+      text-shadow: 0 0 10px #00ff66;
+    }
+
+    form label {
+      display: block;
+      text-align: left;
+      margin-bottom: 15px;
+      font-size: 1em;
+      color: #00ff66;
+    }
+
+    input[type="email"],
+    input[type="password"] {
+      width: 100%;
+      padding: 10px;
+      border: 2px solid #00ff66;
+      border-radius: 5px;
+      background-color: #0a0a0a;
+      color: #00ff66;
+      font-size: 1em;
+      transition: box-shadow 0.3s ease;
+    }
+
+    input:focus {
+      outline: none;
+      box-shadow: 0 0 10px #00ff66;
+    }
+
+    button {
+      width: 100%;
+      padding: 12px;
+      background-color: #00ff66;
+      color: #000;
+      font-weight: bold;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 1em;
+      margin-top: 20px;
+      transition: background-color 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #00cc44;
+    }
+  </style>
 </head>
 <body>
-  <header><h1>Iniciar Sesión</h1></header>
-  <main>
+  <div class="login-container">
+    <img src="img/LevelUpGamer.png" alt="logoLevelUpGamer">
+    <h1>Iniciar Sesión</h1>
     <form id="formLogin">
-      <label>Correo: <input type="email" name="correo" required></label><br>
-      <label>Contraseña: <input type="password" name="password" required></label><br>
+      <label for="correo">Correo:</label>
+      <input type="email" name="correo" id="correo" required>
+
+      <label for="password">Contraseña:</label>
+      <input type="password" name="password" id="password" required>
+
       <button type="submit">Ingresar</button>
     </form>
-  </main>
+  </div>
   <script src="js/validaciones.js"></script>
 </body>
 </html>
