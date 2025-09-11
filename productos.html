@@ -141,5 +141,32 @@
 
   <script src="js/main.js"></script>
   <script src="js/carrito.js"></script>
+  <script>
+
+  const filtroBtns = document.querySelectorAll('.filtro-btn');
+  const productos = document.querySelectorAll('.producto-card');
+
+  filtroBtns.forEach(btn => {
+    btn.addEventListener('click', function() {
+      
+      filtroBtns.forEach(b => b.classList.remove('active'));
+      this.classList.add('active');
+
+      const categoria = btn.getAttribute('data-categoria');
+      productos.forEach(producto => {
+        if (categoria === 'todos') {
+          producto.style.display = 'block';
+        } else {
+          if (producto.getAttribute('data-categoria') === categoria) {
+            producto.style.display = 'block';
+          } else {
+            producto.style.display = 'none';
+          }
+        }
+      });
+    });
+  });
+</script>
+  
 </body>
 </html>
