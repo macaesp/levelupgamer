@@ -2,35 +2,79 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <title>Blog</title>
+  <title>Blog - LevelUpGamer</title>
   <link rel="stylesheet" href="csslevel.css">
 </head>
 <body>
   <header>
-    <img src="img/LevelUpGamer.png" alt="logoLevelUpGamer" width="140" height="100">
-    <h1>Noticias Gamer</h1>
+    <div class="logo">LevelUpGamer</div>
+    <nav class="menu">
+      <a href="htmlevel.html">Inicio</a>
+      <a href="productos.htm">Productos</a>
+      <a href="nosotros.html">Nosotros</a>
+      <a href="blog.html">Blog</a>
+      <a href="contacto.html">Contacto</a>
+    </nav>
+    <div class="usuario">
+      <a href="login.html">Iniciar Sessión</a>
+      <a href="registro.html">Registrarse</a>
+    </div>
+    <div class="carrito">
+      <a href="carrito.html">🛒</a>
+    </div>
   </header>
   <main>
-    <article>
-      <img src="img/newkeyboards.png" alt="Nueva línea de teclados gamer" width="340" height="220">
-      <h2><a href="detalle-blog.html">Nueva línea de teclados gamer</a></h2>
-      <p>Descubre lo último en tecnología mecánica con retroiluminación RGB y switches de alto rendimiento.</p>
-      <a href="detalle-blog.html" class="btn">Leer más</a>
-    </article>
-
-    <article>
-    <img src="img/vIBAAAAI.PNG" alt="Ibai Llanos en directo" width="340" height="220">
-    <h2><a href="detalle-blog5.html">Ibai Llanos rompe récord de audiencia en Twitch</a></h2>
-    <p>El streamer español alcanzó cifras históricas de espectadores en su último evento en directo, reafirmando su lugar como uno de los creadores más influyentes del gaming y los esports.</p>
-    <a href="detalle-blog5.html" class="btn">Leer más</a>
-    </article>
-    
-    <article>
-      <img src="img/TOPSILLAS.PNG" alt="Top 5 sillas gamer del 2025" width="340" height="220">
-      <h2><a href="detalle-blog3.html">Top 5 sillas gamer del 2025</a></h2>
-      <p>Comodidad, diseño y ergonomía: conoce las mejores opciones para tus largas sesiones de juego.</p>
-      <a href="detalle-blog3.html" class="btn">Leer más</a>
-    </article>
+    <div class="blog-hero">
+      <h1>Noticias Gamer</h1>
+      <p>Mantente al dia con las ultimas noticias del mundo gamer.</p>
+    </div>
+    <div class="blog-container">
+      <section class="blog-post">
+        <article class="blog-card">
+          <div class="blog-imagen">
+            <img src="img/newkeyboards.png" alt="Nueva linea de teclados gamer" width="280">
+          </div>
+          <div class="blog-contenido">
+            <h2><a href="detalleblog.html">Nueva linea de teclados gamer</a></h2>
+            <p class="blog-excerpt">Descubre lo ultimo en la tecnologia mecanica con iluminacion RGB y swiches de alto rendimiendo para llevar tu experencia gaming al siguiente nivel. </p>
+            <div class="blog-meta">
+              <span class="blog-fecha">15 Agosto 2025</span>
+              <span class="blog-autor">Por Admin</span>
+            </div>
+            <a href="detalleblog.html" class="btn-leer-mas">Leer Más</a>
+          </div>
+        </article>
+      </section>
+    </div>
+      <article class="blog-card">
+          <div class="blog-image">
+            <img src="img/vIBAAAAI.PNG" alt="Ibai Llanos en directo" width="280">
+          </div>
+          <div class="blog-content">
+            <h2><a href="detalle-blog.html">Ibai Llanos rompe récord de audiencia en Twitch</a></h2>
+            <p class="blog-excerpt">El streamer español alcanzó cifras históricas de espectadores en su último evento en directo, reafirmando su lugar como uno de los creadores más influyentes.</p>
+            <div class="blog-meta">
+              <span class="blog-date">12 Enero 2025</span>
+              <span class="blog-author">Por Admin</span>
+            </div>
+            <a href="detalle-blog.html?" class="btn-leer-mas">Leer más</a>
+          </div>
+        </article>
+        
+        <article class="blog-card">
+          <div class="blog-image">
+            <img src="img/TOPSILLAS.PNG" alt="Top 5 sillas gamer del 2025" width="280">
+          </div>
+          <div class="blog-content">
+            <h2><a href="detalle-blog.html">Top 5 sillas gamer del 2025</a></h2>
+            <p class="blog-excerpt">Comodidad, diseño y ergonomía: conoce las mejores opciones para tus largas sesiones de juego y mejora tu setup gaming.</p>
+            <div class="blog-meta">
+              <span class="blog-date">10 Enero 2025</span>
+              <span class="blog-author">Por Admin</span>
+            </div>
+            <a href="detalle-blog.html" class="btn-leer-mas">Leer más</a>
+          </div>
+        </article>
   </main>
 </body>
 </html>
