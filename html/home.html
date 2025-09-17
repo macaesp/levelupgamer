@@ -21,8 +21,7 @@
       <a href="nosotros.html" class="nav-link">Nosotros</a>
       <a href="contacto.html" class="nav-link">Contacto</a>
       <a href="carrito.html" class="nav-link carrito"><i class="fas fa-shopping-cart"></i></a>
-      <a href="login.html" class="nav-link">Login</a>
-      <a href="registro.html" class="nav-link">Registro</a>
+      <a href="login.html" class="nav-link">Iniciar Sesion</a>
     </nav>
     <div class="mobile-menu-btn">
       <i class="fas fa-bars"></i>
@@ -188,18 +187,8 @@
       </div>
     </div>
   </footer>
-
-  <script>
-    // Función para agregar productos al carrito
-    function agregarAlCarrito(idProducto) {
-      alert('Producto ' + idProducto + ' agregado al carrito');
-      // Aquí iría la lógica real para agregar al carrito
-    }
-    
-    // Menú móvil
-    document.querySelector('.mobile-menu-btn').addEventListener('click', function() {
-      document.querySelector('.navbar').classList.toggle('active');
-    });
-  </script>
+  <div id="notificacion-carrito"></div>
+  <script src="../js/carrito.js"></script>
+  <script src="../js/productos.js"></script>
 </body>
 </html>
