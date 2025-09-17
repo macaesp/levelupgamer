@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Level Up Gamer</title>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+  <link rel="stylesheet" href="../css/home.css">
+</head>
+<body>
+<header class="site-header">
+  <div class="container">
+    <div class="logo">
+      <a href="home.html"><img src="../img/logo.png" alt="LevelUpGamer"></a>
+    </div>
+    <nav class="navbar">
+      <a href="home.html" class="nav-link active">Inicio</a>
+      <a href="productos.html" class="nav-link">Productos</a>
+      <a href="blog.html" class="nav-link">Blog</a>
+      <a href="nosotros.html" class="nav-link">Nosotros</a>
+      <a href="contacto.html" class="nav-link">Contacto</a>
+      <a href="carrito.html" class="nav-link carrito"><i class="fas fa-shopping-cart"></i></a>
+      <a href="login.html" class="nav-link">Login</a>
+      <a href="registro.html" class="nav-link">Registro</a>
+    </nav>
+    <div class="mobile-menu-btn">
+      <i class="fas fa-bars"></i>
+    </div>
+  </div>
+</header>
+  
+  <main>
+    <section class="hero">
+      <div class="container">
+        <div class="hero-content">
+          <h1>Level Up Gamer</h1>
+          <p>¡Descubre lo mejor en productos gamer! Variedad, calidad y precios que te harán subir de nivel.</p>
+          <a href="productos.html" class="btn">Ver Productos</a>
+        </div>
+        <div class="hero-image">
+          <img src="../img/bannerLEVELUPGAMER.png" alt="Banner Level Up Gamer">
+        </div>
+      </div>
+    </section>
+
+    <section class="productos">
+      <div class="container">
+        <h2>Nuestros Productos Destacados</h2>
+        <div class="productos-grid">
+          <div class="producto-card">
+            <span class="badge nuevo">Nuevo</span>
+            <img src="../img/catan.jpg" alt="Juego Catan" class="producto-img">
+            <div class="producto-info">
+              <h3>Catan</h3>
+              <p>Clásico de estrategia. <a href="detalleproducto.html">Ver más</a></p>
+            </div>
+            <div class="card-footer">
+              <span class="precio">$29.990</span>
+              <button class="btn-carrito" onclick="agregarAlCarrito(1)">
+                <i class="fas fa-cart-plus"></i> Añadir
+              </button>
+            </div>
+          </div>
+          
+          <div class="producto-card">
+            <span class="badge oferta">Oferta</span>
+            <img src="../img/ps5.png" alt="PlayStation 5" class="producto-img">
+            <div class="producto-info">
+              <h3>PlayStation 5</h3>
+              <p>Consola de última generación. <a href="detalleproducto.html">Ver más</a></p>
+            </div>
+            <div class="card-footer">
+              <span class="precio">$499.990</span>
+              <button class="btn-carrito" onclick="agregarAlCarrito(2)">
+                <i class="fas fa-cart-plus"></i> Añadir
+              </button>
+            </div>
+          </div>
+          
+          <div class="producto-card">
+            <span class="badge">Popular</span>
+            <img src="../img/mousegamerlogi.png" alt="Mouse Gamer Logitech" class="producto-img">
+            <div class="producto-info">
+              <h3>Mouse Gamer Logitech</h3>
+              <p>Precisión y comodidad. <a href="detalleproducto.html">Ver más</a></p>
+            </div>
+            <div class="card-footer">
+              <span class="precio">$49.990</span>
+              <button class="btn-carrito" onclick="agregarAlCarrito(3)">
+                <i class="fas fa-cart-plus"></i> Añadir
+              </button>
+            </div>
+          </div>
+          
+          <div class="producto-card">
+            <span class="badge nuevo">Nuevo</span>
+            <img src="../img/sillagamer.png" alt="Silla Gamer" class="producto-img">
+            <div class="producto-info">
+              <h3>Silla Gamer Profesional</h3>
+              <p>Confort para largas sesiones. <a href="detalleproducto.html">Ver más</a></p>
+            </div>
+            <div class="card-footer">
+              <span class="precio">$129.990</span>
+              <button class="btn-carrito" onclick="agregarAlCarrito(4)">
+                <i class="fas fa-cart-plus"></i> Añadir
+              </button>
+            </div>
+          </div>
+        </div>
+        
+        <div class="ver-mas">
+          <a href="productos.html" class="btn">Ver todos los productos</a>
+        </div>
+      </div>
+    </section>
+    
+    <section class="categorias">
+      <div class="container">
+        <h2>Categorías</h2>
+        <div class="categorias-grid">
+          <a href="productos.html?categoria=consolas" class="categoria">
+            <img src="../img/ps5.png" alt="Consolas">
+            <h3>Consolas</h3>
+          </a>
+          <a href="productos.html?categoria=perifericos" class="categoria">
+            <img src="../img/teclado.jpg" alt="Periféricos">
+            <h3>Periféricos</h3>
+          </a>
+          <a href="productos.html?categoria=juegos" class="categoria">
+            <img src="../img/catan.jpg" alt="Juegos">
+            <h3>Juegos</h3>
+          </a>
+          <a href="productos.html?categoria=muebles" class="categoria">
+            <img src="../img/silla.jpg" alt="Muebles">
+            <h3>Muebles</h3>
+          </a>
+        </div>
+      </div>
+    </section>
+    
+    <section class="newsletter">
+      <div class="container">
+        <h2>Suscríbete a nuestro Newsletter</h2>
+        <p>Recibe las últimas novedades y ofertas exclusivas</p>
+        <form class="form-newsletter">
+          <input type="email" placeholder="Tu correo electrónico" required>
+          <button type="submit" class="btn">Suscribirse</button>
+        </form>
+      </div>
+    </section>
+  </main>
+  
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-section">
+          <img src="../img/logo.png" alt="Level Up Gamer" class="footer-logo">
+          <p>Tu tienda especializada en productos gaming de calidad.</p>
+        </div>
+        <div class="footer-section">
+          <h3>Enlaces rápidos</h3>
+          <ul>
+            <li><a href="home.html">Inicio</a></li>
+            <li><a href="productos.html">Productos</a></li>
+            <li><a href="nosotros.html">Nosotros</a></li>
+            <li><a href="contacto.html">Contacto</a></li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h3>Contacto</h3>
+          <p><i class="fas fa-map-marker-alt"></i> Av. Siempre Viva 742, Springfield</p>
+          <p><i class="fas fa-phone"></i> +56 9 1234 5678</p>
+          <p><i class="fas fa-envelope"></i> info@levelupgamer.cl</p>
+        </div>
+        <div class="footer-section">
+          <h3>Síguenos</h3>
+          <div class="social-icons">
+            <a href="#"><i class="fab fa-facebook"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-youtube"></i></a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2023 Level Up Gamer. Todos los derechos reservados.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Función para agregar productos al carrito
+    function agregarAlCarrito(idProducto) {
+      alert('Producto ' + idProducto + ' agregado al carrito');
+      // Aquí iría la lógica real para agregar al carrito
+    }
+    
+    // Menú móvil
+    document.querySelector('.mobile-menu-btn').addEventListener('click', function() {
+      document.querySelector('.navbar').classList.toggle('active');
+    });
+  </script>
+</body>
+</html>
