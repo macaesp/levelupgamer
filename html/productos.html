@@ -20,8 +20,8 @@
         <a href="blog.html" class="nav-link">Blog</a>
         <a href="nosotros.html" class="nav-link">Nosotros</a>
         <a href="contacto.html" class="nav-link">Contacto</a>
-        <a href="carrito.html" class="nav-link carrito"><i class="fas fa-shopping-cart"></i><span class="cart-count">3</span></a>
-        <a href="login.html" class="nav-link">Login</a>
+        <a href="carrito.html" class="nav-link carrito"><i class="fas fa-shopping-cart"></i></a>
+        <a href="login.html" class="nav-link">Iniciar Sesion</a>
       </nav>
       <div class="mobile-menu-btn">
         <i class="fas fa-bars"></i>
@@ -107,7 +107,7 @@
             <div class="product-footer">
               <div class="product-price">$499.990</div>
               <div class="product-actions">
-                <button class="btn-add-cart" onclick="addToCart(1)">
+                <button class="btn-add-cart" onclick="agregarAlCarrito(1)">
                   <i class="fas fa-cart-plus"></i> Añadir
                 </button>
                 <a href="detalleproducto.html" class="btn-view-details">Ver detalles</a>
@@ -139,7 +139,7 @@
                 <span class="sale-price">$29.990</span>
               </div>
               <div class="product-actions">
-                <button class="btn-add-cart" onclick="addToCart(2)">
+                <button class="btn-add-cart" onclick="agregarAlCarrito(2)">
                   <i class="fas fa-cart-plus"></i> Añadir
                 </button>
                 <a href="detalleproducto.html" class="btn-view-details">Ver detalles</a>
@@ -168,7 +168,7 @@
             <div class="product-footer">
               <div class="product-price">$49.990</div>
               <div class="product-actions">
-                <button class="btn-add-cart" onclick="addToCart(3)">
+                <button class="btn-add-cart" onclick="agregarAlCarrito(3)">
                   <i class="fas fa-cart-plus"></i> Añadir
                 </button>
                 <a href="detalleproducto.html" class="btn-view-details">Ver detalles</a>
@@ -197,7 +197,7 @@
             <div class="product-footer">
               <div class="product-price">$129.990</div>
               <div class="product-actions">
-                <button class="btn-add-cart" onclick="addToCart(4)">
+                <button class="btn-add-cart" onclick="agregarAlCarrito(4)">
                   <i class="fas fa-cart-plus"></i> Añadir
                 </button>
                 <a href="detalleproducto.html" class="btn-view-details">Ver detalles</a>
@@ -229,7 +229,7 @@
                 <span class="sale-price">$59.990</span>
               </div>
               <div class="product-actions">
-                <button class="btn-add-cart" onclick="addToCart(5)">
+                <button class="btn-add-cart" onclick="agregarAlCarrito(5)">
                   <i class="fas fa-cart-plus"></i> Añadir
                 </button>
                 <a href="detalleproducto.html" class="btn-view-details">Ver detalles</a>
@@ -258,7 +258,7 @@
             <div class="product-footer">
               <div class="product-price">$39.990</div>
               <div class="product-actions">
-                <button class="btn-add-cart" onclick="addToCart(6)">
+                <button class="btn-add-cart" onclick="agregarAlCarrito(6)">
                   <i class="fas fa-cart-plus"></i> Añadir
                 </button>
                 <a href="detalleproducto.html" class="btn-view-details">Ver detalles</a>
@@ -287,7 +287,7 @@
             <div class="product-footer">
               <div class="product-price">$79.990</div>
               <div class="product-actions">
-                <button class="btn-add-cart" onclick="addToCart(7)">
+                <button class="btn-add-cart" onclick="agregarAlCarrito(7)">
                   <i class="fas fa-cart-plus"></i> Añadir
                 </button>
                 <a href="detalleproducto.html" class="btn-view-details">Ver detalles</a>
@@ -316,7 +316,7 @@
             <div class="product-footer">
               <div class="product-price">$24.990</div>
               <div class="product-actions">
-                <button class="btn-add-cart" onclick="addToCart(8)">
+                <button class="btn-add-cart" onclick="agregarAlCarrito(8)">
                   <i class="fas fa-cart-plus"></i> Añadir
                 </button>
                 <a href="detalleproducto.html" class="btn-view-details">Ver detalles</a>
@@ -374,31 +374,18 @@
     </div>
   </footer>
 
+  <script src="../js/productos.js"></script>
+  <script src="../js/carrito.js"></script>
   <script>
     // Menú móvil
     document.querySelector('.mobile-menu-btn').addEventListener('click', function() {
       document.querySelector('.navbar').classList.toggle('active');
     });
 
-    // Función para añadir al carrito
-    function addToCart(productId) {
-      const cartCount = document.querySelector('.cart-count');
-      let count = parseInt(cartCount.textContent);
-      cartCount.textContent = count + 1;
-      
-      // Efecto visual de añadido al carrito
-      cartCount.classList.add('pulse');
-      setTimeout(() => {
-        cartCount.classList.remove('pulse');
-      }, 500);
-      
-      alert('Producto añadido al carrito!');
-    }
 
-    // Filtros responsive
+    // Responsive
     document.querySelectorAll('.filter-checkbox input').forEach(checkbox => {
       checkbox.addEventListener('change', function() {
-        // Aquí iría la lógica de filtrado real
         console.log('Filtro cambiado:', this.checked);
       });
     });

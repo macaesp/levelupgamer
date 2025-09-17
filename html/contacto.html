@@ -2,22 +2,274 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <title>Contacto</title>
-  <link rel="stylesheet" href="cssLevel.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contacto - LevelUpGamer</title>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+  <link rel="stylesheet" href="../css/contacto.css">
 </head>
 <body>
-  <header>
-    <img src="img/LevelUpGamer.png" alt="logoLevelUpGamer" width="140" height="100">
-    <h1>Contacto</h1>
+  <header class="site-header">
+    <div class="container">
+      <div class="logo">
+        <a href="home.html"><img src="../img/logo.png" alt="LevelUpGamer"></a>
+      </div>
+      <nav class="navbar">
+        <a href="home.html" class="nav-link">Inicio</a>
+        <a href="productos.html" class="nav-link">Productos</a>
+        <a href="blog.html" class="nav-link">Blog</a>
+        <a href="nosotros.html" class="nav-link">Nosotros</a>
+        <a href="contacto.html" class="nav-link active">Contacto</a>
+        <a href="carrito.html" class="nav-link carrito"><i class="fas fa-shopping-cart"></i></a>
+        <a href="login.html" class="nav-link">Iniciar Sesion</a>
+      </nav>
+      <div class="mobile-menu-btn">
+        <i class="fas fa-bars"></i>
+      </div>
+    </div>
   </header>
+
   <main>
-    <form id="formContacto">
-      <label>Nombre: <input type="text" name="nombre" required></label><br>
-      <label>Correo: <input type="email" name="correo" required></label><br>
-      <label>Mensaje: <textarea name="comentario" required></textarea></label><br>
-      <button type="submit">Enviar</button>
-    </form>
+    <section class="contact-hero">
+      <div class="container">
+        <h1>Contacto</h1>
+        <p>¿Tienes preguntas? Estamos aquí para ayudarte. Contáctanos y te responderemos pronto.</p>
+      </div>
+    </section>
+
+    <section class="contact-content">
+      <div class="container">
+        <div class="contact-grid">
+          <div class="contact-info">
+            <h2>Información de Contacto</h2>
+            
+            <div class="contact-item">
+              <div class="contact-icon">
+                <i class="fas fa-map-marker-alt"></i>
+              </div>
+              <div class="contact-details">
+                <h3>Dirección</h3>
+                <p>Av. Brasil 2021, Valparaíso</p>
+                <p>Valparaiso, Chile</p>
+              </div>
+            </div>
+
+            <div class="contact-item">
+              <div class="contact-icon">
+                <i class="fas fa-phone"></i>
+              </div>
+              <div class="contact-details">
+                <h3>Teléfono</h3>
+                <p>+56 9 1234 5678</p>
+                <p>Lunes a Viernes: 9:00 - 18:00</p>
+              </div>
+            </div>
+
+            <div class="contact-item">
+              <div class="contact-icon">
+                <i class="fas fa-envelope"></i>
+              </div>
+              <div class="contact-details">
+                <h3>Email</h3>
+                <p>info@levelupgamer.cl</p>
+                <p>soporte@levelupgamer.cl</p>
+              </div>
+            </div>
+
+            <div class="contact-item">
+              <div class="contact-icon">
+                <i class="fas fa-clock"></i>
+              </div>
+              <div class="contact-details">
+                <h3>Horario de Atención</h3>
+                <p>Lunes a Viernes: 9:00 - 18:00</p>
+                <p>Sábados: 10:00 - 14:00</p>
+              </div>
+            </div>
+
+            <div class="social-contact">
+              <h3>Síguenos en:</h3>
+              <div class="social-icons">
+                <a href="#" class="social-link">
+                  <i class="fab fa-facebook"></i>
+                </a>
+                <a href="#" class="social-link">
+                  <i class="fab fa-instagram"></i>
+                </a>
+                <a href="#" class="social-link">
+                  <i class="fab fa-twitter"></i>
+                </a>
+                <a href="#" class="social-link">
+                  <i class="fab fa-youtube"></i>
+                </a>
+                <a href="#" class="social-link">
+                  <i class="fab fa-discord"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <div class="contact-form">
+            <h2>Envíanos un Mensaje</h2>
+            <form id="formContacto" class="contact-form">
+              <div class="form-group">
+                <label for="nombre">Nombre completo *</label>
+                <input type="text" id="nombre" name="nombre" required>
+                <i class="fas fa-user"></i>
+              </div>
+
+              <div class="form-group">
+                <label for="email">Correo electrónico *</label>
+                <input type="email" id="email" name="email" required>
+                <i class="fas fa-envelope"></i>
+              </div>
+
+              <div class="form-group">
+                <label for="asunto">Asunto *</label>
+                <select id="asunto" name="asunto" required>
+                  <option value="">Selecciona un asunto</option>
+                  <option value="consulta">Consulta general</option>
+                  <option value="soporte">Soporte técnico</option>
+                  <option value="ventas">Información de ventas</option>
+                  <option value="devolucion">Devolución o garantía</option>
+                  <option value="otros">Otros</option>
+                </select>
+                <i class="fas fa-tag"></i>
+              </div>
+
+              <div class="form-group">
+                <label for="mensaje">Mensaje *</label>
+                <textarea id="mensaje" name="mensaje" rows="5" required placeholder="Escribe tu mensaje aquí..."></textarea>
+                <i class="fas fa-comment"></i>
+              </div>
+
+              <button type="submit" class="btn-submit">
+                <i class="fas fa-paper-plane"></i> Enviar Mensaje
+              </button>
+            </form>
+          </div>
+        </div>
+
+        <div class="map-section">
+          <h2>¿Dónde estamos?</h2>
+          <div class="map-container">
+            <div class="map-placeholder">
+              <i class="fas fa-map-marked-alt"></i>
+              <p>Mapa interactivo de nuestra ubicación</p>
+              <span>Aquí iría un mapa de Google Maps o similar</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="faq-section">
+          <h2>Preguntas Frecuentes</h2>
+          <div class="faq-grid">
+            <div class="faq-item">
+              <h3>¿Cuál es el tiempo de entrega?</h3>
+              <p>El tiempo de entrega varía según tu ubicación. En Santiago: 1-2 días hábiles. Regiones: 3-5 días hábiles.</p>
+            </div>
+            
+            <div class="faq-item">
+              <h3>¿Realizan envíos a todo Chile?</h3>
+              <p>Sí, realizamos envíos a todas las regiones de Chile a través de Starken y Chilexpress.</p>
+            </div>
+            
+            <div class="faq-item">
+              <h3>¿Ofrecen garantía en sus productos?</h3>
+              <p>Todos nuestros productos incluyen garantía del fabricante. Los períodos varían según el producto.</p>
+            </div>
+            
+            <div class="faq-item">
+              <h3>¿Puedo retirar mi pedido en tienda?</h3>
+              <p>Sí, ofrecemos retiro en tienda sin costo adicional. Av. Siempre Viva 742, Springfield.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
   </main>
-  <script src="js/validaciones.js"></script>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-section">
+          <img src="../img/logo.png" alt="Level Up Gamer" class="footer-logo">
+          <p>Tu tienda especializada en productos gaming de calidad.</p>
+        </div>
+        <div class="footer-section">
+          <h3>Enlaces rápidos</h3>
+          <ul>
+            <li><a href="home.html">Inicio</a></li>
+            <li><a href="productos.html">Productos</a></li>
+            <li><a href="blog.html">Blog</a></li>
+            <li><a href="nosotros.html">Nosotros</a></li>
+            <li><a href="contacto.html">Contacto</a></li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h3>Contacto</h3>
+          <p><i class="fas fa-map-marker-alt"></i> Av. Siempre Viva 742, Springfield</p>
+          <p><i class="fas fa-phone"></i> +56 9 1234 5678</p>
+          <p><i class="fas fa-envelope"></i> info@levelupgamer.cl</p>
+        </div>
+        <div class="footer-section">
+          <h3>Síguenos</h3>
+          <div class="social-icons">
+            <a href="#"><i class="fab fa-facebook"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-youtube"></i></a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2023 Level Up Gamer. Todos los derechos reservados.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Menú móvil
+    document.querySelector('.mobile-menu-btn').addEventListener('click', function() {
+      document.querySelector('.navbar').classList.toggle('active');
+    });
+
+    // Validación básica del formulario
+    document.getElementById('formContacto').addEventListener('submit', function(e) {
+      e.preventDefault();
+      
+      // Validación simple
+      const nombre = document.getElementById('nombre').value;
+      const email = document.getElementById('email').value;
+      const mensaje = document.getElementById('mensaje').value;
+      
+      if (nombre && email && mensaje) {
+        // Simulación de envío exitoso
+        alert('¡Mensaje enviado con éxito! Te contactaremos pronto.');
+        this.reset();
+      } else {
+        alert('Por favor, completa todos los campos obligatorios.');
+      }
+    });
+
+    // Efectos de focus en los inputs
+    const formGroups = document.querySelectorAll('.form-group');
+    formGroups.forEach(group => {
+      const input = group.querySelector('input, textarea, select');
+      const icon = group.querySelector('i');
+      
+      input.addEventListener('focus', () => {
+        group.classList.add('focused');
+        if (icon) icon.style.color = '#00ff66';
+      });
+      
+      input.addEventListener('blur', () => {
+        if (!input.value) {
+          group.classList.remove('focused');
+        }
+        if (icon) icon.style.color = '#ccc';
+      });
+    });
+  </script>
 </body>
 </html>
